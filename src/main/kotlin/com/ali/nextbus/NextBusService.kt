@@ -54,6 +54,7 @@ class NextBusService(private val client: MetroTransitClient) {
         // If the departure time is in the past, return null to indicate that there's no more buses for today.
         val minutes = ((departure.departureTime - System.currentTimeMillis() / 1000) / 60).toInt()
         return if (minutes < 0) null else minutes
+//        return null
     }
 
     /**

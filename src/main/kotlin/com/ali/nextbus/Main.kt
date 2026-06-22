@@ -13,9 +13,11 @@ fun main(args: Array<String>) {
 
     try {
         val minutes = service.getMinutesUntilNextBus(route, direction, stop)
-        println("$minutes Minutes")
-    } catch (_: IllegalStateException) {
-        println("No more buses today.")
+        if (minutes == null) {
+            println("No more buses today.")
+        } else {
+            println("$minutes Minutes")
+        }
     } catch (e: IllegalArgumentException) {
         println("Error: ${e.message}")
     }
